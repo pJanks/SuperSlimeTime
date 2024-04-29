@@ -17,5 +17,5 @@
     ?>
   </head>
   <body>
-    <?php require_once "views/components/main_header.html" ?>
+    <?php require_once "views/components/main_header.php" ?>
     <main>
