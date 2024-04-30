@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/styles/reset.css">
     <link rel="stylesheet" href="/styles/global.css">
     <?php
-      $underscoredRoute = str_replace("-", "_", $route);
       $cssFile = "/styles/$underscoredRoute.css";
       $sanitizedCssFile = htmlspecialchars($cssFile);
 

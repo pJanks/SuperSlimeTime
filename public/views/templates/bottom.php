@@ -2,7 +2,6 @@
   </body>
   <script src="/scripts/global.js"></script>
   <?php
-    $underscoredRoute = str_replace("-", "_", $route);
     $scriptFile = "/scripts/$underscoredRoute.js";
     $sanitizedScriptFile = htmlspecialchars($scriptFile);
 
