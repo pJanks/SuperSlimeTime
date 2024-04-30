@@ -15,3 +15,17 @@ button {
   border-bottom: 2px solid #666;
   padding: 10px 15px;
 }
+
+.main-nav {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.main-nav-link {
+  margin: 0 20px;
+}
+
+.nav-link-image {
+  width: 30px;
+}

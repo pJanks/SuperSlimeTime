@@ -11,6 +11,11 @@
     $route = $splitRequestUri[0] === "" ? "home" : $splitRequestUri[0];
     switch ($route) {
       case "home":
+      case "contact":
+      case "favorites":
+      case "search":
+      case "cart":
+      case "shop-all":
       break;
 
       default:
@@ -19,7 +24,9 @@
       break;
     }
 
+    $underscoredRoute = str_replace("-", "_", $route);
+
     require_once "views/templates/top.php";
-    require_once "views/$route/$route.html";
+    require_once "views/$underscoredRoute/$underscoredRoute.html";
     require_once "views/templates/bottom.php";
   }
