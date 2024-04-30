@@ -8,6 +8,15 @@ button {
   cursor: pointer;
 }
 
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .main-header {
   align-items: center;
   display: flex;

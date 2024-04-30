@@ -4,7 +4,8 @@
 
  ## TODO
 
- - finish README haha
- - build everything
+ - finish README (*haha*)
+ - create pages for empty views
+ - structure database *if db is necessary*
 
-*this site is live at [https://superslimetime.com](https://superslimetime.com), and will remain live during development, but has not been completed at this time.*
+***this site is live at [https://superslimetime.com](https://superslimetime.com), and will remain live during development, but has not been completed at this time.***

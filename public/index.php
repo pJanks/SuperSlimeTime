@@ -24,7 +24,11 @@
       break;
     }
 
-    $underscoredRoute = str_replace("-", "_", $route);
+    $underscoredRoute = str_replace("-", "_", $route); // use "-" for urls, "_" for filenames
+
+    // this logic may need to be refactored if we need to use php logic within the views
+    // currently this is not necessary but it can be done using a file_exists() condition
+    // similar to public/views/templates/*.php files
 
     require_once "views/templates/top.php";
     require_once "views/$underscoredRoute/$underscoredRoute.html";
