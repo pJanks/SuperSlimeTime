@@ -4,10 +4,6 @@
   font-family: "Reddit Mono", monospace;
 }
 
-button {
-  cursor: pointer;
-}
-
 a {
   color: unset;
   text-decoration: none;
@@ -17,12 +13,21 @@ a:hover {
   text-decoration: underline;
 }
 
+button {
+  cursor: pointer;
+}
+
 .main-header {
   align-items: center;
-  display: flex;
-  justify-content: space-between;
   border-bottom: 2px solid #666;
-  padding: 10px 15px;
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  padding-left: 20px;
+}
+
+.main-heading {
+  font-size: 155%;
 }
 
 .main-nav {
@@ -37,4 +42,44 @@ a:hover {
 
 .nav-link-image {
   width: 30px;
+}
+
+.menu-button {
+  background-color: #FFF;
+  border: none;
+  display: none;
+  height: 40px;
+  width: 40px;
+}
+
+.responsive-nav {
+  align-items: center;
+  background-color: #FFF;
+  border-bottom: 1px solid #000;
+  border-left: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  position: absolute;
+  right: 0;
+  top: 60px;
+  width: 200px;
+}
+
+.responsive-nav-link {
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 860px) {
+  .main-nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: revert;
+  }
+}
+
+.hidden {
+  display: none;
 }

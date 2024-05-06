@@ -2,3 +2,5 @@
 config.php
 public/.htaccess
 public/assets
+attributions.json
+mock_data.json
