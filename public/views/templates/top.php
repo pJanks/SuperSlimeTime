@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="/styles/global.css">
     <?php
       $cssFile = "/styles/$underscoredRoute.css";
-      $sanitizedCssFile = htmlspecialchars($cssFile);
-
-      if (file_exists($_SERVER["DOCUMENT_ROOT"] . $sanitizedCssFile)) {
-        echo "<link rel=stylesheet href=$sanitizedCssFile>";
+      if (file_exists($_SERVER["DOCUMENT_ROOT"] . $cssFile)) {
+        echo "<link rel=stylesheet href=$cssFile>";
       }
     ?>
   </head>

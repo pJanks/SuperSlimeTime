@@ -1,1 +1,25 @@
-contact
+<section class="contact-form-wrapper">
+  <form class="contact-form">
+    <h2 class="form-heading">Contact Form</h2>
+    <div class="contact-input-and-label-wrapper name">
+      <label class="contact-label" for="name">Name</label>
+      <input class="contact-input name-input" id="name" type="text" required value="pJanks">
+    </div>
+    <div class="contact-input-and-label-wrapper phone">
+      <label class="contact-label" for="phone">Phone</label>
+      <input class="contact-input phone-input" id="phone" type="tel" required value="7252471585">
+    </div>
+    <div class="contact-input-and-label-wrapper email">
+      <label class="contact-label" for="email">Email</label>
+      <input class="contact-input email-input" id="email" type="email" required value="johnny.k.cassidy@gmail.com">
+    </div>
+    <div class="contact-input-and-label-wrapper message">
+      <label class="contact-label" for="message">Message</label>
+      <textarea class="contact-input message-input" id="message" maxlength="1000" rows="5" required>I want some slime. Give me some slime!</textarea>
+      <small class="message-character-count-wrapper">
+        <span class="message-character-count">1000</span> of 1000 characters remaining
+      </small>
+    </div>
+    <button class="submit-contact-form-button" type="submit">Send Message</button>
+  </form>
+</section>
