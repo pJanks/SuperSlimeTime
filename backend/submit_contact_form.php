@@ -7,7 +7,7 @@
       throw new Exception("invalid json input: $jsonError");
     }
 
-    foreach (['name', 'email', 'message'] as $requiredField) {
+    foreach (["name", "email", "message"] as $requiredField) {
       if (empty($emailData->$requiredField)) {
         throw new Exception("missing required field: $requiredField");
       }
@@ -22,7 +22,7 @@
 
     $message = sanitizeInput($rawMessage);
     $name = sanitizeInput($emailData->name);
-    $phone = sanitizeInput($emailData->phone ? $emailData->phone : 'NO PHONE NUMBER PROVIDED');
+    $phone = sanitizeInput($emailData->phone ? $emailData->phone : "NO PHONE NUMBER PROVIDED");
     $email = sanitizeInput($emailData->email);
 
     if (!validateEmail($email)) {
@@ -53,7 +53,7 @@
     formatLogMessage($errorMessage);
     error_log($errorMessage);
 
-    if (strpos($errorMessage, 'invalid json input') !== false || strpos($errorMessage, 'missing required field') !== false || strpos($errorMessage, 'invalid email address') !== false || strpos($errorMessage, 'message is too long') !== false) {
+    if (strpos($errorMessage, "invalid json input") !== false || strpos($errorMessage, "missing required field") !== false || strpos($errorMessage, "invalid email address") !== false || strpos($errorMessage, "message is too long") !== false) {
       http_response_code(400);
     } else {
       http_response_code(500);

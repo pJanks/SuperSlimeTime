@@ -1,4 +1,4 @@
-/logs
+/logs/
 *.log
 config.php
-public/assets
+/public/assets/images/
