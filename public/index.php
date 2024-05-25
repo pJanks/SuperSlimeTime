@@ -1,6 +1,6 @@
 <?php
   require_once "../config.php";
-  require_once "../utils/functions.php";
+  require_once ROOT_DIR . "utils/functions.php";
 
   $lowerCaseRequestUri = strtolower($_SERVER["REQUEST_URI"]);
   $trimmedRequestUri = trim($lowerCaseRequestUri, "/");
@@ -13,9 +13,11 @@
       case "submit_contact_form":
         require_once "../backend/submit_contact_form.php";
       break;
-      
+
       default:
-        // 
+        http_response_code(404);
+        formatLogMessage("unknown api route in index.php");
+        echo json_encode(["error" => "unknown route"]);
       break;
     }
   } else {
@@ -23,6 +25,7 @@
     switch ($route) {
       case "home":
       case "contact":
+      case "about":
       // case "favorites":
       // case "gallery":
       // case "search":

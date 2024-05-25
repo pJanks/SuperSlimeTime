@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Disallow: /backend/
+Disallow: /logs/
+Disallow: /migrations/
+Disallow: /utils/
+Disallow: /config.php
+Disallow: /config.sample.php
+
+Sitemap: https://superslimetime.com/sitemap.xml

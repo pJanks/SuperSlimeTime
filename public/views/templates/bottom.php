@@ -1,8 +1,8 @@
     </main>
   </body>
-  <script src="/scripts/global.js"></script>
+  <script src="/assets/scripts/global.js"></script>
   <?php
-    $scriptFile = "/scripts/$underscoredRoute.js";
+    $scriptFile = "/assets/scripts/$underscoredRoute.js";
     if (file_exists($_SERVER["DOCUMENT_ROOT"] . $scriptFile)) {
       echo "<script src=$scriptFile></script>";
     }
