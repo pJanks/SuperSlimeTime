@@ -9,7 +9,7 @@
 
     foreach (["name", "email", "message"] as $requiredField) {
       if (empty($emailData->$requiredField)) {
-        throw new Exception("missing required field: $requiredField");
+        throw new Exception("missing required field: '$requiredField'");
       }
     }
 
@@ -50,8 +50,8 @@
     }
   } catch (Exception $error) {
     $errorMessage = $error->getMessage();
-    formatLogMessage($errorMessage);
-    error_log($errorMessage);
+    $errorLine = $error->getLine();
+    formatLogMessage("$errorMessage at $errorLine in submit_contact_form.php");
 
     if (strpos($errorMessage, "invalid json input") !== false || strpos($errorMessage, "missing required field") !== false || strpos($errorMessage, "invalid email address") !== false || strpos($errorMessage, "message is too long") !== false) {
       http_response_code(400);
@@ -66,8 +66,8 @@
     ]);
   } catch (\Throwable $error) {
     $errorMessage = $error->getMessage();
-    formatLogMessage($errorMessage);
-    error_log($errorMessage);
+    $errorLine = $error->getLine();
+    formatLogMessage("$errorMessage at $errorLine in submit_contact_form.php");
 
     http_response_code(500);
 
@@ -77,3 +77,6 @@
       "status" => "failed",
     ]);
   }
+
+
+  

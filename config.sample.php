@@ -5,14 +5,14 @@
     define("DB", "DB_NAME");
     define("PASSWORD", "DB_PASSWORD");
     define("ROOT_DIR", "/PATH/TO/ROOT/DIR/");
+    
+    require_once ROOT_DIR . "utils/functions.php";
 
     $pdo = new PDO( "mysql:host=" . SERVER . ";dbname=" . DB, USERNAME, PASSWORD);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   } catch(PDOException $error) {
     $errorMessage = $error->getMessage();
     $errorLine = $error->getLine();
-    error_log($errorMessage);
-    $errorMessageToLog = "could not connect to db. $errorMessage at: $errorLine.";
-    formatLogMessage($errorMessageToLog);
+    formatLogMessage("$errorMessage at $errorLine in config.php");
     http_response_code(500);
   }

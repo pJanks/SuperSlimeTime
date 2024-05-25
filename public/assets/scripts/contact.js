@@ -31,7 +31,7 @@ const handleContactFormSubmission = async (e) => {
     }
 
   } catch (error) {
-    console.error('there was an error with the message request in contact.js');
+    console.error('there was an error with the message request');
   }
 }
 
