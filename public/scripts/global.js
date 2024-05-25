@@ -3,12 +3,12 @@ const handleNetworkRequest = async (url, options = {}) => {
   try {
     const response = await fetch(url, options);
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(`response status: ${response.status}`);
     }
     const parsedResponse = await response.json();
     return parsedResponse;
   } catch (error) {
-    console.error(`fetch error: ${error}`);
+    console.error(`handleNetworkRequest error: ${error}`);
     throw error;
   }
 }
@@ -33,9 +33,9 @@ const handleClickOutsideOfResponsiveMenu = (e) => {
   }
 }
 
-const handleScreenWidthOver860Px = () => {
+const handleResponsiveMenuWhenScreenWidthOver460Px = () => {
   const screenWidth = window.innerWidth;
-  if (!responsiveNav.classList.contains('hidden') && screenWidth > 860) {
+  if (!responsiveNav.classList.contains('hidden') && screenWidth > 460) {
     toggleResponsiveMenu();
   }
 }
@@ -43,5 +43,5 @@ const handleScreenWidthOver860Px = () => {
 hamburgerMenuButton.addEventListener('click', toggleResponsiveMenu);
 closeMenuButton.addEventListener('click', toggleResponsiveMenu);
 body.addEventListener('click', handleClickOutsideOfResponsiveMenu);
-window.addEventListener('resize', handleScreenWidthOver860Px);
+window.addEventListener('resize', handleResponsiveMenuWhenScreenWidthOver460Px);
 // end responsive menu logic

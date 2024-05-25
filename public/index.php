@@ -1,5 +1,6 @@
 <?php
   require_once "../config.php";
+  require_once "../utils/functions.php";
 
   $lowerCaseRequestUri = strtolower($_SERVER["REQUEST_URI"]);
   $trimmedRequestUri = trim($lowerCaseRequestUri, "/");

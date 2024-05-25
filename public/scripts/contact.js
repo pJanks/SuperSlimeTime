@@ -10,9 +10,11 @@ const handleContactFormSubmission = async (e) => {
   const email = document.querySelector('.email-input').value;
   const message = messageInput.value;
 
+
+
   try {
     const headers = { 'Content-Type': 'application/json' };
-    const body = JSON.stringify({ name, phone, email, message })
+    const body = JSON.stringify({ name, phone, email, message });
     const options = {
       method: 'POST',
       headers,
@@ -21,17 +23,20 @@ const handleContactFormSubmission = async (e) => {
     const responseData = await handleNetworkRequest('/api/submit_contact_form', options);
     
     // -- handle successfully sent email here
+
   } catch (error) {
-    console.error('there was an error sending the message');
+    console.error('there was an error sending the message request in contact.js');
   }
 }
 
-const handleMessageInputChange = () => {
-  const maxLength = messageInput.getAttribute('maxlength');
+
+
+const updateCharacterCountForMessage = () => {
+  const maxLength = Number(messageInput.getAttribute('maxlength'));
   const currentCharacterLength = messageInput.value.length;
   const messageCharactersRemaining = maxLength - currentCharacterLength;
-  messageCharacterCount.textContent = messageCharactersRemaining;
+  messageCharacterCount.textContent = String(messageCharactersRemaining);
 }
 
 contactForm.addEventListener('submit', handleContactFormSubmission);
-messageInput.addEventListener('input', handleMessageInputChange);
+messageInput.addEventListener('input', updateCharacterCountForMessage);

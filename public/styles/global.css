@@ -29,7 +29,7 @@ button {
   display: flex;
   height: 60px;
   justify-content: space-between;
-  padding-left: 20px;
+  padding: 0 5px 0 20px;
 }
 
 .main-heading {
@@ -54,8 +54,11 @@ button {
   background-color: #FFF;
   border: none;
   display: none;
-  height: 40px;
-  width: 40px;
+  width: 65px;
+}
+
+.close-menu-button {
+  width: 45px;
 }
 
 .responsive-nav {
@@ -78,10 +81,11 @@ button {
 }
 
 .responsive-nav-link {
+  font-size: 120%;
   margin-bottom: 10px;
 }
 
-@media only screen and (max-width: 860px) {
+@media only screen and (max-width: 460px) {
   .main-nav {
     display: none;
   }
