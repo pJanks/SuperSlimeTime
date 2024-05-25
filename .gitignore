@@ -2,5 +2,3 @@
 *.log
 config.php
 public/assets
-attributions.json
-mock_data.json

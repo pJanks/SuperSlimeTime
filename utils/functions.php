@@ -13,9 +13,15 @@
   }
 
   function sanitizeInput($data) {
-    return htmlspecialchars(strip_tags(trim($data)));
+    return htmlspecialchars(strip_tags(trim($data)), ENT_QUOTES, 'UTF-8');
   }
 
   function validateEmail($email) {
     return filter_var($email, FILTER_VALIDATE_EMAIL);
+  }
+
+  function getCanonicalUrl() {
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+    $canonicalUrl = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    return sanitizeInput($canonicalUrl);
   }

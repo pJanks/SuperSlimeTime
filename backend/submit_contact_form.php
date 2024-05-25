@@ -1,26 +1,32 @@
 <?php
   try {
     $emailData = json_decode(file_get_contents("php://input"));
-    $messageLength = strlen($emailData->$message);
 
-    if ($messageLength > 1000) {
-      formatLogMessage("message is too long: $message");
+    if (json_last_error() !== JSON_ERROR_NONE) {
+      $jsonError = json_last_error_msg();
+      throw new Exception("invalid json input: $jsonError");
+    }
+
+    foreach (['name', 'email', 'message'] as $requiredField) {
+      if (empty($emailData->$requiredField)) {
+        throw new Exception("missing required field: $requiredField");
+      }
+    }
+
+    $rawMessage = $emailData->message;
+    $rawMessageLength = strlen($rawMessage);
+
+    if ($rawMessageLength > 1000) {
       throw new Exception("message is too long");
     }
 
-    $name = sanitizeInput($emailData->name ?? '');
-    $phone = sanitizeInput($emailData->phone ?? '');
-    $email = sanitizeInput($emailData->email ?? '');
-    $message = sanitizeInput($emailData->message ?? '');
-
-    if (empty($name) || empty($email) || empty($message)) {
-      formatLogMessage("required information is missing");
-      throw new Exception("required information is missing");
-    }
+    $message = sanitizeInput($rawMessage);
+    $name = sanitizeInput($emailData->name);
+    $phone = sanitizeInput($emailData->phone ? $emailData->phone : 'NO PHONE NUMBER PROVIDED');
+    $email = sanitizeInput($emailData->email);
 
     if (!validateEmail($email)) {
-      formatLogMessage("invalid email address: $email");
-      throw new Exception("invalid email address");
+      throw new Exception("invalid email address: $email");
     }
 
     $to = "superslimetimeinfo@gmail.com";
@@ -34,22 +40,40 @@
     $messageBody = "Name: $name\nPhone: $phone\nEmail: $email\n\nMessage:\n$message";
 
     if (mail($to, $subject, $messageBody, $headersString)) {
+      http_response_code(200);
       echo json_encode([
         "status" => "success",
-        "data" => $emailData,
       ], JSON_PRETTY_PRINT);
       formatLogMessage("an email was successfully sent from $name at $email", "success");
     } else {
-      formatLogMessage("failed to send email");
       throw new Exception("failed to send email");
     }
+  } catch (Exception $error) {
+    $errorMessage = $error->getMessage();
+    formatLogMessage($errorMessage);
+    error_log($errorMessage);
+
+    if (strpos($errorMessage, 'invalid json input') !== false || strpos($errorMessage, 'missing required field') !== false || strpos($errorMessage, 'invalid email address') !== false || strpos($errorMessage, 'message is too long') !== false) {
+      http_response_code(400);
+    } else {
+      http_response_code(500);
+    }
+
+    echo json_encode([
+      "error" => "there was an error processing your request.",
+      "message" => "please check your input and try again.",
+      "status" => "failed",
+    ]);
   } catch (\Throwable $error) {
     $errorMessage = $error->getMessage();
     formatLogMessage($errorMessage);
     error_log($errorMessage);
+
     http_response_code(500);
+
     echo json_encode([
-      "error" => "there was an error submitting in submit_contact_form.php",
-      "message" => $errorMessage,
+      "error" => "there was an unexpected error.",
+      "message" => "an unexpected error occurred. please try again later.",
+      "status" => "failed",
     ]);
   }

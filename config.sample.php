@@ -13,6 +13,6 @@
     $errorLine = $error->getLine();
     error_log($errorMessage);
     $errorMessageToLog = "could not connect to db. $errorMessage at: $errorLine.";
-    formatLogMessages($errorMessageToLog);
+    formatLogMessage($errorMessageToLog);
     http_response_code(500);
   }
