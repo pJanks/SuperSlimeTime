@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="We create our slime from scratch. It is available in multiple colors and different textures. Please inquire today.">
-    <meta name="keywords" content="slime superslime superslimetime homemade purchase">
+    <meta name="description" content="We create our slime from scratch. It is available in multiple colors and different textures. Please inquire today!">
+    <meta name="keywords" content="slime superslime slimetime superslimetime homemade purchase buy">
     <meta name="author" content="Ioconic">
     <meta name="robots" content="index, follow">
     <title>SuperSlimeTime</title>

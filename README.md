@@ -1,11 +1,11 @@
 # Super Slime Time
-
- - the entry point for the application is `public/index.php`.
+  - The entry point for the application is `public/index.php`.
 
  ## TODO
+  - Finish README *(haha)*
+  - Build loading state for contact form
+  - Build success/error UIs
+  - Build out /our_team and /about views
+  - decide how to store static site data for the site (.json, db, hardcode for /our_team, /about, etc.)
 
- - finish README (*haha*)
- - create pages for empty views
- - structure database *if db is necessary*
-
-***this site is live at [https://superslimetime.com](https://superslimetime.com), and will remain live during development, but has not been completed at this time.***
+***[https://superslimetime.com](https://superslimetime.com) is live, and accepting inquiries, but the site has not yet been completed. Contact us [here](https://superslimetime.com/contact).***
