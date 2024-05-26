@@ -20,10 +20,10 @@
       throw new Exception("message is too long");
     }
 
-    $message = sanitizeInput($rawMessage);
-    $name = sanitizeInput($emailData->name);
-    $phone = sanitizeInput($emailData->phone ? $emailData->phone : "NO PHONE NUMBER PROVIDED");
-    $email = sanitizeInput($emailData->email);
+    $message = sanitizeUserInput($rawMessage);
+    $name = sanitizeUserInput($emailData->name);
+    $phone = sanitizeUserInput($emailData->phone ? $emailData->phone : "NO PHONE NUMBER PROVIDED");
+    $email = sanitizeUserInput($emailData->email);
 
     if (!validateEmail($email)) {
       throw new Exception("invalid email address: $email");
@@ -53,10 +53,19 @@
     $errorLine = $error->getLine();
     formatLogMessage("$errorMessage at $errorLine in submit_contact_form.php");
 
-    if (strpos($errorMessage, "invalid json input") !== false || strpos($errorMessage, "missing required field") !== false || strpos($errorMessage, "invalid email address") !== false || strpos($errorMessage, "message is too long") !== false) {
-      http_response_code(400);
-    } else {
-      http_response_code(500);
+    http_response_code(500);
+    $errorMessageFragments = [
+      "invalid json input",
+      "missing required field",
+      "invalid email address",
+      "message is too long",
+    ];
+
+    foreach ($errorMessageFragments as $errorMessageFragment) {
+      if (strpos($errorMessage, $errorMessageFragment) !== false) {
+        http_response_code(400);
+        break;
+      }
     }
 
     echo json_encode([
