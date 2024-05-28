@@ -8,6 +8,7 @@
 .contact-form {
   border: 3px double #000;
   border-radius: 6px;
+  box-shadow: -2px 4px 6px rgba(13, 10, 13, 0.2), 2px 4px 6px rgba(13, 10, 13, 0.2);
   padding: 40px;
   width: 500px;
 }
@@ -53,23 +54,22 @@
 
 .submit-contact-form-button {
   border: 2px solid #000;
-  color: #000;
   margin-top: 20px;
   width: 100%;
 }
 
 .submit-contact-form-button:hover {
-  border: 2px solid #BBB;
+  border: 2px solid #999;
   background-color: #000;
-  color: #BBB;
+  color: #999;
 }
 
 .submit-contact-form-button:active {
-  border: 2px solid #FFF;
-  color: #FFF;
+  border: 2px solid #DDD;
+  color: #DDD;
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 560px) {
   .contact-form {
     width: 90%;
   }

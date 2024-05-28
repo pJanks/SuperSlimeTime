@@ -3,7 +3,7 @@ const handleNetworkRequest = async (url, options = {}) => {
   try {
     const response = await fetch(url, options);
     if (!response.ok) {
-      throw new Error(`response status: ${response.status}`);
+      throw new Error(`network request error response status: ${response.status}`);
     }
     const parsedResponse = await response.json();
     return parsedResponse;
@@ -21,21 +21,21 @@ const closeMenuButton = document.querySelector('.close-menu-button');
 const responsiveNav = document.querySelector('.responsive-nav');
 const body = document.querySelector('body');
 
+const responsiveMenuElementsToToggle = [hamburgerMenuButton, closeMenuButton, responsiveNav];
+
 const toggleResponsiveMenu = () => {
-  const elementsToToggleHidden = [hamburgerMenuButton, closeMenuButton, responsiveNav];
-  elementsToToggleHidden.forEach(element => element.classList.toggle('hidden'));
+  responsiveMenuElementsToToggle.forEach(el => el.classList.toggle('hidden'));
 }
 
 const handleClickOutsideOfResponsiveMenu = (e) => {
-  const invalidTargets = [hamburgerMenuButton, hamburgerMenuIcon, closeMenuButton];
-  if (!responsiveNav.classList.contains('hidden') && !invalidTargets.includes(e.target) && !responsiveNav.contains(e.target)) {
+  if (!responsiveNav.classList.contains('hidden') && !responsiveMenuElementsToToggle.includes(e.target) && !responsiveNav.contains(e.target)) {
     toggleResponsiveMenu();
   }
 }
 
-const handleResponsiveMenuWhenScreenWidthOver600Px = () => {
+const handleResponsiveMenuOnResize = () => {
   const screenWidth = window.innerWidth;
-  if (!responsiveNav.classList.contains('hidden') && screenWidth > 500) {
+  if (!responsiveNav.classList.contains('hidden') && screenWidth > 600) {
     toggleResponsiveMenu();
   }
 }
@@ -43,5 +43,5 @@ const handleResponsiveMenuWhenScreenWidthOver600Px = () => {
 hamburgerMenuButton.addEventListener('click', toggleResponsiveMenu);
 closeMenuButton.addEventListener('click', toggleResponsiveMenu);
 body.addEventListener('click', handleClickOutsideOfResponsiveMenu);
-window.addEventListener('resize', handleResponsiveMenuWhenScreenWidthOver600Px);
+window.addEventListener('resize', handleResponsiveMenuOnResize);
 // end responsive menu logic

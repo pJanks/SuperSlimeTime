@@ -1,14 +1,14 @@
-.landing-page-wrapper {
+.homepage-wrapper {
   padding-top: 15vh;
 }
 
-.landing-page-summary {
+.homepage-summary {
   font-size: 145%;
   text-align: center;
 }
 
 .contact-us-link {
-  color: rgb(105, 66, 205);
+  color: #6942CD;
 }
 
 .contact-us-link:hover {

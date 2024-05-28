@@ -51,7 +51,7 @@
   } catch (Exception $error) {
     $errorMessage = $error->getMessage();
     $errorLine = $error->getLine();
-    formatLogMessage("$errorMessage at $errorLine in submit_contact_form.php");
+    formatLogMessage("$errorMessage at line $errorLine in submit_contact_form.php");
 
     http_response_code(500);
     $errorMessageFragments = [
@@ -76,7 +76,7 @@
   } catch (\Throwable $error) {
     $errorMessage = $error->getMessage();
     $errorLine = $error->getLine();
-    formatLogMessage("$errorMessage at $errorLine in submit_contact_form.php");
+    formatLogMessage("$errorMessage at line $errorLine in submit_contact_form.php");
 
     http_response_code(500);
 
