@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="We create our slime from scratch. It is available in multiple colors and different textures. Please inquire today!">
-    <meta name="keywords" content="slime superslime slimetime superslimetime homemade purchase buy">
+    <meta name="description" content="Discover handmade slime in vibrant colors and unique textures. Perfect for play and stress relief, and suggestions are also welcome. Order custom slime today!">
+    <meta name="keywords" content="superslimetime slime superslime slimetime homemade purchase buy">
     <meta name="author" content="Ioconic">
     <meta name="robots" content="index, follow">
     <title>SuperSlimeTime</title>
@@ -12,6 +12,9 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="canonical" href="<?= getCanonicalUrl(); ?>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/styles/reset.css">
     <link rel="stylesheet" href="/assets/styles/global.css">
     <?php
@@ -22,5 +25,5 @@
     ?>
   </head>
   <body>
-    <?php require_once "views/components/main_header.php" ?>
+    <?php require_once "views/components/main_header.php" ?> 
     <main>

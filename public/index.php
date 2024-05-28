@@ -25,6 +25,7 @@
       case "home":
       case "contact":
       case "about":
+      case "our-team":
       // case "favorites":
       // case "gallery":
       // case "search":
