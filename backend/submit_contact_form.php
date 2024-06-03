@@ -9,14 +9,14 @@
 
     foreach (["name", "email", "message"] as $requiredField) {
       if (empty($emailData->$requiredField)) {
-        throw new Exception("missing required field: '$requiredField'");
+        throw new Exception("missing required field: $requiredField");
       }
     }
 
     $rawMessage = $emailData->message;
     $rawMessageLength = strlen($rawMessage);
 
-    if ($rawMessageLength > 1000) {
+    if ($rawMessageLength > 4000) {
       throw new Exception("message is too long");
     }
 
@@ -44,7 +44,7 @@
       echo json_encode([
         "status" => "success",
       ], JSON_PRETTY_PRINT);
-      formatLogMessage("an email was successfully sent from $name at $email", "success");
+      formatLogMessage("an email was successfully sent from $name: $email", "success");
     } else {
       throw new Exception("failed to send email");
     }
