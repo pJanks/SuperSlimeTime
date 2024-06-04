@@ -1,4 +1,3 @@
-// begin utils
 const handleNetworkRequest = async (url, options = {}) => {
   try {
     const response = await fetch(url, options);
@@ -12,7 +11,41 @@ const handleNetworkRequest = async (url, options = {}) => {
     throw error;
   }
 }
-// end utils
+
+// begin loading and modal state logic
+const successOrErrorModalMessage = document.querySelector('.success-or-error-message');
+const successOrErrorModalHeading = document.querySelector('.success-or-error-message-heading');
+const successOrErrorModalWrapper = document.querySelector('.success-or-error-message-modal-wrapper');
+const successOrErrorModalCloseButton = document.querySelector('.success-or-error-message-modal-close-button');
+
+const toggleLoadState = () => {
+  const loaderModal = document.querySelector('.loader-modal-wrapper');
+  loaderModal.classList.toggle('hidden');
+}
+
+const toggleSuccessOrErrorModal = (message, type = 'error-message') => {
+  if (message === 'reset') return resetSuccessOrErrorModal();
+
+  successOrErrorModalMessage.innerText = message;
+  successOrErrorModalHeading.innerText = type === 'error-message' ? 'Error:' : 'Success:';
+  successOrErrorModalHeading.classList.add(type);
+  successOrErrorModalWrapper.classList.toggle('hidden');
+}
+
+const resetSuccessOrErrorModal = () => {
+  const classToRemove = successOrErrorModalHeading.classList.contains('error-message') ? 'error-message' : 'success-message';
+  successOrErrorModalMessage.innerText = '';
+  successOrErrorModalHeading.innerText = '';
+  successOrErrorModalHeading.classList.remove(classToRemove);
+  successOrErrorModalWrapper.classList.toggle('hidden');
+}
+
+const handleSuccessOrErrorMessageModalCloseButtonClick = () => {
+  toggleSuccessOrErrorModal('reset');
+}
+
+successOrErrorModalCloseButton.addEventListener('click', handleSuccessOrErrorMessageModalCloseButtonClick);
+// end loading and modal state logic
 
 // begin responsive menu logic
 const hamburgerMenuButton = document.querySelector('.hamburger-menu-button');

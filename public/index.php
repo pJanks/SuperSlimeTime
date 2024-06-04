@@ -1,8 +1,8 @@
 <?php
   require_once "../config.php";
 
-  $lowerCaseRequestUri = strtolower($_SERVER["REQUEST_URI"]);
-  $trimmedRequestUri = trim($lowerCaseRequestUri, "/");
+  $lowercasedRequestUri = strtolower($_SERVER["REQUEST_URI"]);
+  $trimmedRequestUri = trim($lowercasedRequestUri, "/");
   $splitRequestUri = explode("/", $trimmedRequestUri);
 
   if ($splitRequestUri[0] === "api") {
@@ -41,8 +41,9 @@
     }
 
     $underscoredRoute = str_replace("-", "_", $route);
+    $extension = file_exists("views/$underscoredRoute/$underscoredRoute.php") ? "php" : "html";
 
     require_once "views/templates/top.php";
-    require_once "views/$underscoredRoute/$underscoredRoute.html";
+    require_once "views/$underscoredRoute/$underscoredRoute.$extension";
     require_once "views/templates/bottom.php";
   }

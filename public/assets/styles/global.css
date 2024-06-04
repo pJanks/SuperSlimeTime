@@ -126,6 +126,50 @@ main {
   margin-bottom: 10px;
 }
 
+.loader-modal-wrapper,
+.success-or-error-message-modal-wrapper {
+  align-items: center;
+  background-color: rgba(11, 8, 33, 0.6);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 2;
+}
+
+.success-or-error-message-modal {
+  align-items: center;
+  background-color: #000;
+  border: 2px solid #666;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px 80px;
+  text-align: center;
+}
+
+.modal-message {
+  color: #FFF;
+  display: block;
+  font-size: 130%;
+  margin: 20px;
+}
+
+.success-message {
+  color: #0F0;
+}
+
+.error-message {
+  color: #F00;
+}
+
+.success-or-error-message-modal-close-button {
+  border: 1px solid #FFF;
+  color: #FFF;
+}
+
 @media only screen and (max-width: 600px) {
   .main-nav {
     display: none;

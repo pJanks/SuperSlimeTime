@@ -27,3 +27,15 @@
   <body>
     <?php require_once "views/components/main_header.php" ?> 
     <main>
+      <section class="success-or-error-message-modal-wrapper hidden">
+        <div class="success-or-error-message-modal">
+          <h3 class="success-or-error-message-heading">nurse</h3>
+          <span class="success-or-error-message modal-message">hello</span>
+          <button class="success-or-error-message-modal-close-button">Close</button>
+        </div>
+      </section>
+      <section class="loader-modal-wrapper hidden">
+        <div class="loader-modal">
+          <h3 class="loader-message">Loading . . .</h3>
+        </div>
+      </section>

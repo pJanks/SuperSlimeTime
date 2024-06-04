@@ -1,27 +1,27 @@
 <section class="contact-form-wrapper">
   <form class="contact-form">
-    <h2 class="form-heading">Contact Us</h2>
+    <h3 class="form-heading">Contact Us</h3>
     <div class="contact-input-and-label-wrapper name">
       <label class="contact-label" for="name">
         Name<span class="required-asterisk">*</span>
       </label>      
-      <input class="contact-input name-input" id="name" type="text" required autofocus>
+      <input class="contact-input name-input" id="name" type="text" autocomplete="name" required autofocus>
     </div>
     <div class="contact-input-and-label-wrapper phone">
       <label class="contact-label" for="phone">Phone</label>
-      <input class="contact-input phone-input" id="phone" type="tel"> 
+      <input class="contact-input phone-input" id="phone" type="tel" autocomplete="phone"> 
     </div>
     <div class="contact-input-and-label-wrapper email">
       <label class="contact-label" for="email">
         Email<span class="required-asterisk">*</span>
       </label>
-      <input class="contact-input email-input" id="email" type="email" required>
+      <input class="contact-input email-input" id="email" type="email" autocomplete="email" required>
     </div>
     <div class="contact-input-and-label-wrapper message">
       <label class="contact-label" for="message">
         Message<span class="required-asterisk">*</span>
       </label>
-      <textarea class="contact-input message-input" id="message" maxlength="4000" rows="5" required></textarea>
+      <textarea class="contact-input message-input" id="message" maxlength="4000" rows="4" required></textarea>
       <small class="message-char-count-wrapper">
         <span class="message-char-count">4000</span> of 4000 characters remaining
       </small>

@@ -1,5 +1,5 @@
 # Super Slime Time
-  - The entry point for the application is `public/index.php`.
+  - The entry point for this application is `public/index.php`.
 
  ## TODO
   - Finish README *(haha)*
