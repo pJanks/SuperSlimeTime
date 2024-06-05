@@ -29,13 +29,13 @@
     <main>
       <section class="success-or-error-message-modal-wrapper hidden">
         <div class="success-or-error-message-modal">
-          <h3 class="success-or-error-message-heading">nurse</h3>
-          <span class="success-or-error-message modal-message">hello</span>
+          <h3 class="success-or-error-message-heading"></h3>
+          <span class="success-or-error-message modal-message"></span>
           <button class="success-or-error-message-modal-close-button">Close</button>
         </div>
       </section>
       <section class="loader-modal-wrapper hidden">
         <div class="loader-modal">
-          <h3 class="loader-message">Loading . . .</h3>
+          <h3 class="loader-message modal-message">Loading . . .</h3>
         </div>
       </section>

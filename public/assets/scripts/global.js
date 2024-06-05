@@ -2,7 +2,7 @@ const handleNetworkRequest = async (url, options = {}) => {
   try {
     const response = await fetch(url, options);
     if (!response.ok) {
-      throw new Error(`network request error response status: ${response.status}`);
+      throw new Error(`network request error, response status: ${response.status}`);
     }
     const parsedResponse = await response.json();
     return parsedResponse;
@@ -12,7 +12,7 @@ const handleNetworkRequest = async (url, options = {}) => {
   }
 }
 
-// begin loading and modal state logic
+// begin modal state logic
 const successOrErrorModalMessage = document.querySelector('.success-or-error-message');
 const successOrErrorModalHeading = document.querySelector('.success-or-error-message-heading');
 const successOrErrorModalWrapper = document.querySelector('.success-or-error-message-modal-wrapper');
@@ -26,26 +26,46 @@ const toggleLoadState = () => {
 const toggleSuccessOrErrorModal = (message, type = 'error-message') => {
   if (message === 'reset') return resetSuccessOrErrorModal();
 
-  successOrErrorModalMessage.innerText = message;
-  successOrErrorModalHeading.innerText = type === 'error-message' ? 'Error:' : 'Success:';
+  successOrErrorModalMessage.textContent = message;
+  successOrErrorModalHeading.textContent = type === 'error-message' ? 'Error:' : 'Success:';
   successOrErrorModalHeading.classList.add(type);
   successOrErrorModalWrapper.classList.toggle('hidden');
 }
 
 const resetSuccessOrErrorModal = () => {
   const classToRemove = successOrErrorModalHeading.classList.contains('error-message') ? 'error-message' : 'success-message';
-  successOrErrorModalMessage.innerText = '';
-  successOrErrorModalHeading.innerText = '';
+  successOrErrorModalMessage.textContent = '';
+  successOrErrorModalHeading.textContent = '';
   successOrErrorModalHeading.classList.remove(classToRemove);
   successOrErrorModalWrapper.classList.toggle('hidden');
 }
 
-const handleSuccessOrErrorMessageModalCloseButtonClick = () => {
+const handleSuccessOrErrorModalCloseButtonClick = () => {
   toggleSuccessOrErrorModal('reset');
+  toggleFormStateForModal();
 }
 
-successOrErrorModalCloseButton.addEventListener('click', handleSuccessOrErrorMessageModalCloseButtonClick);
-// end loading and modal state logic
+const toggleFormStateForModal = () => {
+  if (contactForm) {
+    const elementsToToggleState = [
+      nameInput,
+      phoneInput,
+      emailInput,
+      messageInput,
+      mainHeadingLink,
+      hamburgerMenuButton,
+      submitContactFormButton,
+      ...mainNavLinks,
+    ];
+  
+    elementsToToggleState.forEach(el => {
+      el.tabIndex === -1 ? el.tabIndex = 0 : el.tabIndex = -1;
+    });
+  }
+}
+
+successOrErrorModalCloseButton.addEventListener('click', handleSuccessOrErrorModalCloseButtonClick);
+// end modal state logic
 
 // begin responsive menu logic
 const hamburgerMenuButton = document.querySelector('.hamburger-menu-button');
@@ -78,3 +98,8 @@ closeMenuButton.addEventListener('click', toggleResponsiveMenu);
 body.addEventListener('click', handleClickOutsideOfResponsiveMenu);
 window.addEventListener('resize', handleResponsiveMenuOnResize);
 // end responsive menu logic
+
+// begin other 'main-header' globals
+const mainHeadingLink = document.querySelector('.main-heading-link');
+const mainNavLinks = document.querySelectorAll('.main-nav-link');
+// end other 'main-header' globals

@@ -1,5 +1,5 @@
 <header class="main-header">
-  <a class="header-logo-link" href="/">
+  <a class="main-heading-link" href="/">
     <h1 class="main-heading">SuperSlimeTime</h1>
   </a>
   <?php require_once "views/components/main_nav.html" ?>

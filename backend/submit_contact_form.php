@@ -13,17 +13,15 @@
       }
     }
 
-    $rawMessage = $emailData->message;
-    $rawMessageLength = strlen($rawMessage);
-
+    $rawMessageLength = strlen($emailData->message);
     if ($rawMessageLength > 4000) {
       throw new Exception("message is too long");
     }
 
-    $message = sanitizeUserInput($rawMessage);
     $name = sanitizeUserInput($emailData->name);
-    $phone = sanitizeUserInput($emailData->phone ? $emailData->phone : "NO PHONE NUMBER PROVIDED");
     $email = sanitizeUserInput($emailData->email);
+    $message = sanitizeUserInput($emailData->message);
+    $phone = sanitizeUserInput($emailData->phone ? $emailData->phone : "NO PHONE NUMBER PROVIDED");
 
     if (!validateEmail($email)) {
       throw new Exception("invalid email address: $email");

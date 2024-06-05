@@ -4,6 +4,7 @@ const emailInput = document.querySelector('.email-input');
 const contactForm = document.querySelector('.contact-form');
 const messageInput = document.querySelector('.message-input');
 const messageCharCount = document.querySelector('.message-char-count');
+const submitContactFormButton = document.querySelector('.submit-contact-form-button');
 
 const handleContactFormSubmission = async (e) => {
   e.preventDefault();
@@ -15,21 +16,27 @@ const handleContactFormSubmission = async (e) => {
 
   try {
     const headers = { 'Content-Type': 'application/json' };
-    const body = JSON.stringify({ name, phone, email, message });
+    const body = JSON.stringify({
+      name,
+      phone,
+      email,
+      message,
+    });
     const options = {
       method: 'POST',
       headers,
       body,
     }
-
+    toggleFormStateForModal();
     toggleLoadState();
     await handleNetworkRequest('/api/submit_contact_form', options);
     toggleSuccessOrErrorModal('Email sent successfully', 'success-message');
+    toggleLoadState();
   } catch (error) {
     console.error(`handleContactFormSubmission() error: ${error}`);
     toggleSuccessOrErrorModal(`Email failed to send: ${error}`);
+    toggleLoadState();
   }
-  toggleLoadState();
 }
 
 const updateCharCountForMessage = () => {
