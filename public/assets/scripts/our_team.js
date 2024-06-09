@@ -14,7 +14,8 @@ const populateTeamMembersOnPage = (teamMembersData) => {
           <div class="team-member-image-wrapper">
             <img class="team-member-image" src="${teamMember.image_link}" alt="A photo of our ${teamMember.title}, ${teamMember.name}">
           </div>
-          <h3 class="team-member-name">${teamMember.name} - ${teamMember.title}</h3>
+          <h3 class="team-member-name">${teamMember.name}</h3>
+          <h4 class="team-member-title">${teamMember.title}</h4>
           <p class="team-member-description">${teamMember.description}</p>
         </article>
       `;
