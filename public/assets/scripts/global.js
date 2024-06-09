@@ -52,10 +52,6 @@ const toggleFormStateForModal = () => {
       phoneInput,
       emailInput,
       messageInput,
-      mainHeadingLink,
-      hamburgerMenuButton,
-      submitContactFormButton,
-      ...mainNavLinks,
     ];
   
     elementsToToggleState.forEach(el => {

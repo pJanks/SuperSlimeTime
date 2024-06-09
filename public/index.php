@@ -11,7 +11,9 @@
       case "submit_contact_form":
         require_once ROOT_DIR . "backend/submit_contact_form.php";
       break;
-
+      case "fetch_our_team":
+        require_once ROOT_DIR . "backend/fetch_our_team.php";
+      break;
       default:
         http_response_code(404);
         formatLogMessage("unknown api route in index.php");
