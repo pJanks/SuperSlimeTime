@@ -4,7 +4,11 @@
 }
 
 body {
-  min-height: 100vh;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: calc(100vh - 60px);
   overflow-x: hidden;
 }
 
@@ -174,6 +178,19 @@ main {
 .success-or-error-message-modal-close-button {
   border: 1px solid #FFF;
   color: #FFF;
+}
+
+.main-footer {
+  border-top: 2px solid #000;
+  box-shadow: 0 -4px 6px rgba(13, 10, 13, 0.2);
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.github-link {
+  color: #6942CD;
+  font-weight: 700;
 }
 
 @media only screen and (max-width: 600px) {

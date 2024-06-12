@@ -1,4 +1,5 @@
     </main>
+    <?php require_once "views/components/main_footer.html" ?>
   </body>
   <script src="/assets/scripts/global.js"></script>
   <?php

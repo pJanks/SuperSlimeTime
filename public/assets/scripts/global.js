@@ -13,14 +13,20 @@ const handleNetworkRequest = async (url, options = {}) => {
 }
 
 // begin modal state logic
+const body = document.querySelector('body');
 const successOrErrorModalMessage = document.querySelector('.success-or-error-message');
 const successOrErrorModalHeading = document.querySelector('.success-or-error-message-heading');
 const successOrErrorModalWrapper = document.querySelector('.success-or-error-message-modal-wrapper');
 const successOrErrorModalCloseButton = document.querySelector('.success-or-error-message-modal-close-button');
 
+const toggleModalActiveState = () => {
+  body.classList.toggle('modal-active');
+}
+
 const toggleLoadState = () => {
   const loaderModal = document.querySelector('.loader-modal-wrapper');
   loaderModal.classList.toggle('hidden');
+  toggleModalActiveState();
 }
 
 const toggleSuccessOrErrorModal = (message, type = 'error-message') => {
@@ -68,7 +74,6 @@ const hamburgerMenuButton = document.querySelector('.hamburger-menu-button');
 const hamburgerMenuIcon = document.querySelector('.hamburger-menu-icon');
 const closeMenuButton = document.querySelector('.close-menu-button');
 const responsiveNav = document.querySelector('.responsive-nav');
-const body = document.querySelector('body');
 
 const responsiveMenuElementsToToggle = [hamburgerMenuButton, closeMenuButton, responsiveNav];
 
@@ -90,12 +95,7 @@ const handleResponsiveMenuOnResize = () => {
 }
 
 hamburgerMenuButton.addEventListener('click', toggleResponsiveMenu);
-closeMenuButton.addEventListener('click', toggleResponsiveMenu);
 body.addEventListener('click', handleClickOutsideOfResponsiveMenu);
+closeMenuButton.addEventListener('click', toggleResponsiveMenu);
 window.addEventListener('resize', handleResponsiveMenuOnResize);
 // end responsive menu logic
-
-// begin other 'main-header' globals
-const mainHeadingLink = document.querySelector('.main-heading-link');
-const mainNavLinks = document.querySelectorAll('.main-nav-link');
-// end other 'main-header' globals

@@ -25,7 +25,7 @@
     ?>
   </head>
   <body>
-    <?php require_once "views/components/main_header.php" ?> 
+    <?php require_once "views/components/main_header.php" ?>
     <main>
       <section class="success-or-error-message-modal-wrapper hidden">
         <div class="success-or-error-message-modal">

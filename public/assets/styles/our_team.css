@@ -16,8 +16,8 @@
   align-self: flex-start;
   display: flex;
   flex-direction: column;
-  margin: 10px 10px 80px;
-  width: 30%;
+  margin: 10px 10px 20px;
+  width: 25%;
 }
 
 .team-member-image {
