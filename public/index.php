@@ -14,6 +14,9 @@
       case "fetch_our_team":
         require_once ROOT_DIR . "backend/fetch_our_team.php";
       break;
+      case "fetch_products":
+        require_once ROOT_DIR . "backend/fetch_products.php";
+      break;
       default:
         http_response_code(404);
         formatLogMessage("unknown api route in index.php");
@@ -27,6 +30,7 @@
       case "contact":
       case "about":
       case "our-team":
+      case "products":
       /*
         case "favorites":
         case "gallery":

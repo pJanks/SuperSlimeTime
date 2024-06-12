@@ -4,11 +4,10 @@
 }
 
 body {
-  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: calc(100vh - 60px);
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
@@ -193,7 +192,7 @@ main {
   font-weight: 700;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .main-nav {
     display: none;
   }
