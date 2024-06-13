@@ -33,7 +33,7 @@ const populateTeamMembersOnPage = (teamMembersData) => {
     images.forEach(image => image.addEventListener('load', handleImageLoad));
   } catch (error) {
     console.error(`populateTeamMembersOnPage() error: ${error}`);
-    toggleSuccessOrErrorModal(`There was an error encountered`);
+    toggleSuccessOrErrorModal(`An error occurred.`);
     toggleLoadState();
   }
 }

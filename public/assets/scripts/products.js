@@ -32,7 +32,7 @@ const populateProductsOnPage = (productsData) => {
     images.forEach(image => image.addEventListener('load', handleImageLoad));
   } catch (error) {
     console.error(`populateProductsOnPage() error: ${error}`);
-    toggleSuccessOrErrorModal(`There was an error encountered`);
+    toggleSuccessOrErrorModal(`An error occurred`);
     toggleLoadState();
   }
 }

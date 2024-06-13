@@ -15,6 +15,9 @@ const handleContactFormSubmission = async (e) => {
   const message = messageInput.value;
 
   try {
+    toggleFormStateForModal();
+    toggleLoadState();
+
     const headers = { 'Content-Type': 'application/json' };
     const body = JSON.stringify({
       name,
@@ -22,22 +25,35 @@ const handleContactFormSubmission = async (e) => {
       email,
       message,
     });
+
     const options = {
       method: 'POST',
       headers,
       body,
-    }
-    toggleFormStateForModal();
-    toggleLoadState();
+    };
+
     await handleNetworkRequest('/api/submit_contact_form', options);
     toggleSuccessOrErrorModal('Email sent successfully', 'success-message');
     toggleLoadState();
+    resetContactForm();
   } catch (error) {
     console.error(`handleContactFormSubmission() error: ${error}`);
     toggleSuccessOrErrorModal(`Email failed to send: ${error}`);
     toggleLoadState();
   }
 }
+
+const resetContactForm = () => {
+  const inputsToReset = [
+    nameInput,
+    phoneInput,
+    emailInput,
+    messageInput,
+  ];
+  
+  inputsToReset.forEach(input => input.value = '');
+  updateCharCountForMessage();
+};
 
 const updateCharCountForMessage = () => {
   const maxCharLength = Number(messageInput.getAttribute('maxlength'));

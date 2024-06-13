@@ -1,4 +1,12 @@
 <?php
+  function generateApiKey($length = 32) {
+    if (function_exists('random_bytes')) {
+      return bin2hex(random_bytes($length));
+    } elseif (function_exists('openssl_random_pseudo_bytes')) {
+      return bin2hex(openssl_random_pseudo_bytes($length));
+    }
+  }
+  
   function formatDateInPST() {
     $dateTime = new DateTime("now");
     return $dateTime
@@ -9,7 +17,8 @@
   function formatLogMessage($logMessage, $log = "error") {
     $date = formatDateInPST();
     $logLine = "$date: $logMessage\n";
-    file_put_contents(ROOT_DIR . "logs/$log.log", $logLine, FILE_APPEND);
+    $logPath = ROOT_DIR . "logs/$log.log";
+    file_put_contents($logPath, $logLine, FILE_APPEND);
   }
 
   function sanitizeUserInput($userInput) {

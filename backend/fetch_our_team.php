@@ -1,5 +1,4 @@
 <?php
-
   try {
     $pdo = createDBConnection();
     $sql = "SELECT * FROM our_team";
@@ -16,9 +15,7 @@
     $errorMessage = $error->getMessage();
     $errorLine = $error->getLine();
     formatLogMessage("$errorMessage at line $errorLine in fetch_our_team.php");
-
     http_response_code(500);
-
     echo json_encode([
       "error" => "there was an unexpected error.",
       "message" => "an unexpected error occurred. please try again later.",

@@ -9,13 +9,9 @@
     $route = $splitRequestUri[1];
     switch ($route) {
       case "submit_contact_form":
-        require_once ROOT_DIR . "backend/submit_contact_form.php";
-      break;
       case "fetch_our_team":
-        require_once ROOT_DIR . "backend/fetch_our_team.php";
-      break;
       case "fetch_products":
-        require_once ROOT_DIR . "backend/fetch_products.php";
+        require_once ROOT_DIR . "backend/$route.php";
       break;
       default:
         http_response_code(404);
@@ -31,13 +27,6 @@
       case "about":
       case "our-team":
       case "products":
-      /*
-        case "favorites":
-        case "gallery":
-        case "search":
-        case "cart":
-        case "shop-all":
-      */
       break;
 
       default:

@@ -8,6 +8,8 @@ const handleNetworkRequest = async (url, options = {}) => {
     return parsedResponse;
   } catch (error) {
     console.error(`handleNetworkRequest() error: ${error}`);
+    toggleSuccessOrErrorModal(`A network error occurred.`);
+    toggleLoadState();
     throw error;
   }
 }
@@ -36,6 +38,7 @@ const toggleSuccessOrErrorModal = (message, type = 'error-message') => {
   successOrErrorModalHeading.textContent = type === 'error-message' ? 'Error:' : 'Success:';
   successOrErrorModalHeading.classList.add(type);
   successOrErrorModalWrapper.classList.toggle('hidden');
+  successOrErrorModalCloseButton.focus();
 }
 
 const resetSuccessOrErrorModal = () => {
@@ -63,6 +66,8 @@ const toggleFormStateForModal = () => {
     elementsToToggleState.forEach(el => {
       el.tabIndex === -1 ? el.tabIndex = 0 : el.tabIndex = -1;
     });
+    
+    submitContactFormButton.disabled = !submitContactFormButton.disabled;
   }
 }
 
