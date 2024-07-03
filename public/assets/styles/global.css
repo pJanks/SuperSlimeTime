@@ -187,9 +187,8 @@ main {
   z-index: 2;
 }
 
-.github-link {
-  color: #6942CD;
-  font-weight: 700;
+.johnnycassidydev-link {
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 700px) {
