@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Discover handmade slime in vibrant colors and unique textures. Perfect for play and stress relief, and suggestions are also welcome. Order custom slime today!">
     <meta name="keywords" content="superslimetime slime superslime slimetime homemade purchase buy">
-    <meta name="author" content="Ioconic">
+    <meta name="author" content="Johnny Cassidy">
     <meta name="robots" content="index, follow">
     <title>SuperSlimeTime</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
